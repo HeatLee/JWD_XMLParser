@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://www.training.by/tariffs"
+        xmlns:tr="https://www.training.by/tariffs" elementFormDefault="qualified">
+    <element name="tariffs">
+        <complexType>
+            <sequence>
+                <element name="tariff" type="tr:tariff" minOccurs="5" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="tariff">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="operator_name" type="string"/>
+            <element name="payroll" type="tr:price"/>
+            <element name="callPrices" type="tr:callPrice"/>
+            <element name="SMSPrice" type="tr:price"/>
+            <element name="parameters" type="tr:parameters"/>
+        </sequence>
+        <attribute name="id" type="tr:id" use="required"/>
+    </complexType>
+
+    <complexType name="callPrice">
+        <sequence>
+            <element name="withinNetwork" type="tr:price"/>
+            <element name="otherNetwork" type="tr:price" />
+            <element name="standardPhoneNumbers" type="tr:price" />
+        </sequence>
+    </complexType>
+
+    <complexType name="parameters">
+        <sequence>
+            <element name="isFavouritePhoneNumber" type="boolean" />
+            <element name="tariffing" type="tr:tariffing"/>
+            <element name="connectionCost" type="nonNegativeInteger"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="tariffing">
+        <restriction base="double">
+            <enumeration value="0.25"/>
+            <enumeration value="0.5"/>
+            <enumeration value="1"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="id">
+        <restriction base="ID">
+            <pattern value="ID\d+"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="price">
+        <restriction base="double">
+            <minInclusive value="0"/>
+        </restriction>
+    </simpleType>
+</schema>
