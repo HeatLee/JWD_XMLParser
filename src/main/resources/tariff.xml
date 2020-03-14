@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tariffs>
-    <tariff id="1">
+<tariffs xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance">
+    <tariff id="ID1">
         <name>Infinity</name>
-        <operator_name>MTAss</operator_name>
+        <operatorName>MTAss</operatorName>
         <payroll>30</payroll>
         <callPrices>
             <withinNetwork>0.6</withinNetwork>
@@ -16,9 +16,9 @@
             <connectionCost>0</connectionCost>
         </parameters>
     </tariff>
-    <tariff id="2">
+    <tariff id="ID2">
         <name>LMAO</name>
-        <operator_name>EpIcO</operator_name>
+        <operatorName>EpIcO</operatorName>
         <payroll>322</payroll>
         <callPrices>
             <withinNetwork>228</withinNetwork>
@@ -32,52 +32,20 @@
             <connectionCost>322</connectionCost>
         </parameters>
     </tariff>
-    <tariff id="3">
+    <tariff id="ID3">
         <name>Lama</name>
-        <operator_name>Welcome</operator_name>
+        <operatorName>Welcome</operatorName>
         <payroll>100</payroll>
         <callPrices>
-            <withinNetwork> </withinNetwork>
-            <otherNetwork>33</otherNetwork>
-            <standardPhoneNumbers>33</standardPhoneNumbers>
+            <withinNetwork>0.1</withinNetwork>
+            <otherNetwork>10</otherNetwork>
+            <standardPhoneNumbers>0</standardPhoneNumbers>
         </callPrices>
-        <SMSPrice>745</SMSPrice>
+        <SMSPrice>0.7</SMSPrice>
         <parameters>
             <isFavouritePhoneNumber>true</isFavouritePhoneNumber>
             <tariffing>0.25</tariffing>
-            <connectionCost>33</connectionCost>
-        </parameters>
-    </tariff>
-    <tariff id="4">
-        <name>str1234</name>
-        <operator_name>str1234</operator_name>
-        <payroll>33</payroll>
-        <callPrices>
-            <withinNetwork>33</withinNetwork>
-            <otherNetwork>33</otherNetwork>
-            <standardPhoneNumbers>33</standardPhoneNumbers>
-        </callPrices>
-        <SMSPrice>745</SMSPrice>
-        <parameters>
-            <isFavouritePhoneNumber>true</isFavouritePhoneNumber>
-            <tariffing>0.25</tariffing>
-            <connectionCost>33</connectionCost>
-        </parameters>
-    </tariff>
-    <tariff id="5">
-        <name>str1234</name>
-        <operator_name>str1234</operator_name>
-        <payroll>33</payroll>
-        <callPrices>
-            <withinNetwork>33</withinNetwork>
-            <otherNetwork>33</otherNetwork>
-            <standardPhoneNumbers>33</standardPhoneNumbers>
-        </callPrices>
-        <SMSPrice>745</SMSPrice>
-        <parameters>
-            <isFavouritePhoneNumber>true</isFavouritePhoneNumber>
-            <tariffing>0.25</tariffing>
-            <connectionCost>33</connectionCost>
+            <connectionCost>100</connectionCost>
         </parameters>
     </tariff>
 </tariffs>

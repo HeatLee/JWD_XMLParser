@@ -1,59 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="https://www.training.by/tariffs"
-        xmlns:tr="https://www.training.by/tariffs" elementFormDefault="qualified">
-    <element name="tariffs">
-        <complexType>
-            <sequence>
-                <element name="tariff" type="tr:tariff" minOccurs="5" maxOccurs="unbounded"/>
-            </sequence>
-        </complexType>
-    </element>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="tariffs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tariff" type="tariff" minOccurs="3" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-    <complexType name="tariff">
-        <sequence>
-            <element name="name" type="string"/>
-            <element name="operator_name" type="string"/>
-            <element name="payroll" type="tr:price"/>
-            <element name="callPrices" type="tr:callPrice"/>
-            <element name="SMSPrice" type="tr:price"/>
-            <element name="parameters" type="tr:parameters"/>
-        </sequence>
-        <attribute name="id" type="tr:id" use="required"/>
-    </complexType>
+    <xs:complexType name="tariff">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="operatorName" type="xs:string"/>
+            <xs:element name="payroll" type="price"/>
+            <xs:element name="callPrices" type="callPrice"/>
+            <xs:element name="SMSPrice" type="price"/>
+            <xs:element name="parameters" type="parameters"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="id" use="required"/>
+    </xs:complexType>
 
-    <complexType name="callPrice">
-        <sequence>
-            <element name="withinNetwork" type="tr:price"/>
-            <element name="otherNetwork" type="tr:price" />
-            <element name="standardPhoneNumbers" type="tr:price" />
-        </sequence>
-    </complexType>
+    <xs:complexType name="callPrice">
+        <xs:sequence>
+            <xs:element name="withinNetwork" type="price"/>
+            <xs:element name="otherNetwork" type="price" />
+            <xs:element name="standardPhoneNumbers" type="price" />
+        </xs:sequence>
+    </xs:complexType>
 
-    <complexType name="parameters">
-        <sequence>
-            <element name="isFavouritePhoneNumber" type="boolean" />
-            <element name="tariffing" type="tr:tariffing"/>
-            <element name="connectionCost" type="nonNegativeInteger"/>
-        </sequence>
-    </complexType>
+    <xs:complexType name="parameters">
+        <xs:sequence>
+            <xs:element name="isFavouritePhoneNumber" type="xs:boolean" />
+            <xs:element name="tariffing" type="tariffing"/>
+            <xs:element name="connectionCost" type="price"/>
+        </xs:sequence>
+    </xs:complexType>
 
-    <simpleType name="tariffing">
-        <restriction base="double">
-            <enumeration value="0.25"/>
-            <enumeration value="0.5"/>
-            <enumeration value="1"/>
-        </restriction>
-    </simpleType>
+    <xs:simpleType name="tariffing">
+        <xs:restriction base="xs:double">
+            <xs:enumeration value="0.25"/>
+            <xs:enumeration value="0.5"/>
+            <xs:enumeration value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
 
-    <simpleType name="id">
-        <restriction base="ID">
-            <pattern value="ID\d+"/>
-        </restriction>
-    </simpleType>
-    <simpleType name="price">
-        <restriction base="double">
-            <minInclusive value="0"/>
-        </restriction>
-    </simpleType>
-</schema>
+    <xs:simpleType name="id">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="ID\d+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="price">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
