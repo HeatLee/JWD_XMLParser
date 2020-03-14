@@ -1,4 +1,4 @@
-package by.training.xmlparser.builder.sax;
+package by.training.xmlparser.parser.sax;
 
 import by.training.xmlparser.builder.TariffEnum;
 import by.training.xmlparser.entity.CallPrice;

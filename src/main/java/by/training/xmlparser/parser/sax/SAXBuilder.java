@@ -1,4 +1,4 @@
-package by.training.xmlparser.builder.sax;
+package by.training.xmlparser.parser.sax;
 
 import by.training.xmlparser.builder.AbstractTariffBuilder;
 import org.apache.log4j.Logger;

@@ -1,4 +1,4 @@
-package by.training.xmlparser.builder.dom;
+package by.training.xmlparser.parser.dom;
 
 import by.training.xmlparser.builder.AbstractTariffBuilder;
 import by.training.xmlparser.builder.CallPriceBuilder;

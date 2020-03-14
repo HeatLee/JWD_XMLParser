@@ -1,4 +1,4 @@
-package by.training.xmlparser.builder.stax;
+package by.training.xmlparser.parser.stax;
 
 import by.training.xmlparser.builder.AbstractTariffBuilder;
 import by.training.xmlparser.builder.TariffEnum;
@@ -12,8 +12,6 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 
