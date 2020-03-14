@@ -20,7 +20,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 
 public class DOMBuilder extends AbstractTariffBuilder {
     private static final Logger logger = Logger.getLogger(DOMBuilder.class);
@@ -37,7 +36,7 @@ public class DOMBuilder extends AbstractTariffBuilder {
     }
 
     @Override
-    public void buildTariffs(InputStream source) throws ParseException {
+    public void buildTariffs(InputStream source){
         Document document;
         try {
             document = documentBuilder.parse(source);
@@ -46,7 +45,7 @@ public class DOMBuilder extends AbstractTariffBuilder {
 
             for (int i = 0; i < touristVoucher.getLength(); i++) {
                 Element touristVoucherElement = (Element) touristVoucher.item(i);
-                Tariff example = buildTouristVoucher(touristVoucherElement);
+                Tariff example = buildTariff(touristVoucherElement);
                 tariffs.add(example);
             }
         } catch (SAXException | IOException e) {
@@ -54,7 +53,7 @@ public class DOMBuilder extends AbstractTariffBuilder {
         }
     }
 
-    private Tariff buildTouristVoucher(Element element) throws ParseException {
+    private Tariff buildTariff(Element element){
         CallPriceBuilder callPriceBuilder = new CallPriceBuilder()
                 .buildPriceWithinNetwork(Double.parseDouble(getElementTextContent(element,
                         TariffEnum.WITHIN_NETWORK.getValue())))
