@@ -1,6 +1,7 @@
 package by.training.xmlparser.builder;
 
 import by.training.xmlparser.entity.Tariff;
+import by.training.xmlparser.entity.Tariffing;
 
 public enum TariffEnum {
     TARIFFS("tariffs"),
@@ -26,5 +27,15 @@ public enum TariffEnum {
 
     public String getValue() {
         return value;
+    }
+
+    public static TariffEnum getTagTypeByValue(String value) {
+        TariffEnum[] values = TariffEnum.values();
+        for (TariffEnum tariffEnum : values) {
+            if (tariffEnum.getValue().equals(value)) {
+                return tariffEnum;
+            }
+        }
+        throw new IllegalArgumentException();
     }
 }
