@@ -192,3 +192,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+#other
+/src/main/java/by/training/xmlparser/run
