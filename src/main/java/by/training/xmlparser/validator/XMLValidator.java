@@ -4,30 +4,36 @@ import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
-import javax.xml.transform.stream.StreamSource;
+import javax.xml.transform.Source;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Objects;
 
 public class XMLValidator{
     private final static Logger LOGGER = Logger.getLogger(XMLValidator.class);
+    private final static String XSD_FILE_NAME = "tariffs.xsd";
 
-    public boolean validateXMLSchema(String xsdPath, String xmlPath){
+    public boolean validateXMLSchema(InputStream xmlFile){
         boolean isValid = true;
         try {
             SchemaFactory factory =
                     SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = factory.newSchema(new File(xsdPath));
+            Schema schema = factory.newSchema(getXSD());
             Validator validator = schema.newValidator();
-            validator.validate(new StreamSource(new File(xmlPath)));
+            validator.validate((Source) xmlFile);
         } catch (IOException | SAXException e){
             LOGGER.warn(e);
             isValid = false;
         }
 
         return isValid;
+    }
 
+    private File getXSD() {
+        return new File(Objects.requireNonNull(this.getClass().getClassLoader().getResource(XSD_FILE_NAME)).getPath());
     }
 }
