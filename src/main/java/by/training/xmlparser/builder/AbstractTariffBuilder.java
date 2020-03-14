@@ -23,10 +23,6 @@ public abstract class AbstractTariffBuilder {
         tariffs = new HashSet<>();
     }
 
-    public AbstractTariffBuilder(Set<Tariff> tariffs) {
-        this.tariffs = tariffs;
-    }
-
     public Set<Tariff> getTariffs() {
         return tariffs;
     }
