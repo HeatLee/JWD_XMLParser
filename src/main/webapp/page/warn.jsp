@@ -14,6 +14,5 @@
         ${informMessage}
     </h2>
 </div>
-
 </body>
 </html>

@@ -1,4 +1,4 @@
-<%@ page language="java"  pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>result_page</title>
@@ -6,39 +6,28 @@
 </head>
 <body>
 <%@include file="jspheader/nav.jsp" %>
-<div>
-    <table class="table">
-        <thead class="thead-light">
-        <tr>
-            <th scope="col">Tariff name</th>
-            <th scope="col">Operator name</th>
-            <th scope="col">Payroll</th>
-            <th scope="col">SMSPrice</th>
-            <th scope="col">Within network call price</th>
-            <th scope="col">Call price for other network</th>
-            <th scope="col">Call price for standard phone number</th>
-            <th scope="col">Can contains favourite phone numbers</th>
-            <th scope="col">Tariffing</th>
-            <th scope="col">Connection cost</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="tariff" items="${tariffs}">
-            <tr>
-                <td>${tariff.name}</td>
-                <td>${tariff.operatorName}</td>
-                <td>${tariff.pay roll}</td>
-                <td>${tariff.SMSPrice}</td>
-                <td>${tariff.callPrice.withinNetworkPrice}</td>
-                <td>${tariff.callPrice.otherNetworkPrice}</td>
-                <td>${tariff.callPrice.standardPhoneNumbersPrice}</td>
-                <td>${tariff.parameters.containsFavouritePhoneNumbers}</td>
-                <td>${tariff.parameters.tariffing}</td>
-                <td>${tariff.parameters.connectionCost}</td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+        <div class="card">
+            <%--@elvariable id="tariffs" type="by.training.xmlparser.entity.Tariff"--%>
+            <c:forEach var="tariff" items="${tariffs}">
+                <div class="card-header">${tariff.name}</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${tariff.operatorName}</li>
+                    <li class="list-group-item">Payroll ${tariff.payroll}</li>
+                    <li class="list-group-item">SMS price ${tariff.SMSPrice}</li>
+                    <li class="list-group-item">Within network call price ${tariff.callPrice.withinNetworkPrice}</li>
+                    <li class="list-group-item">Call price for other network ${tariff.callPrice.otherNetworkPrice}</li>
+                    <li class="list-group-item">Call price for standard phone
+                        number ${tariff.callPrice.standardPhoneNumbersPrice}</li>
+                    <li class="list-group-item">Can contains favourite phone
+                        numbers ${tariff.parameters.containsFavouritePhoneNumbers}</li>
+                    <li class="list-group-item">Tariffing ${tariff.parameters.tariffing}</li>
+                    <li class="list-group-item">Connection cost ${tariff.parameters.connectionCost}</li>
+                </ul>
+            </c:forEach>
+        </div>
+    </div>
 </div>
 </body>
 </html>
