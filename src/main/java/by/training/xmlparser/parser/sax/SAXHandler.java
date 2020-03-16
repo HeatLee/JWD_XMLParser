@@ -14,7 +14,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SAXHandler extends DefaultHandler {
-    private static final Logger logger = Logger.getLogger(SAXHandler.class);
     private Set<Tariff> tariffSet;
     private Tariff current;
     private TariffEnum currentTag;
@@ -28,7 +27,7 @@ public class SAXHandler extends DefaultHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes){
         if (TariffEnum.TARIFF.getValue().equals(localName)) {
             current = new Tariff();
             current.setParameters(new Parameters());
@@ -39,7 +38,7 @@ public class SAXHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(String uri, String localName, String qName){
         if (TariffEnum.TARIFF.getValue().equals(localName)) {
             tariffSet.add(current);
         }

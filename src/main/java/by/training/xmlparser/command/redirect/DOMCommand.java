@@ -6,14 +6,12 @@ import by.training.xmlparser.command.Pages;
 import by.training.xmlparser.entity.Tariff;
 import by.training.xmlparser.exception.ServiceException;
 import by.training.xmlparser.factory.ServiceFactory;
-import by.training.xmlparser.parser.dom.DOMBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Set;
 
 public class DOMCommand implements Command {

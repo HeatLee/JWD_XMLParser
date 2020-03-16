@@ -13,24 +13,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 
-public class XMLValidator{
+public class XMLValidator {
     private final static Logger LOGGER = Logger.getLogger(XMLValidator.class);
     private final static String XSD_FILE_NAME = "tariffs.xsd";
 
-    public boolean validateXMLSchema(InputStream xmlFile){
-        boolean isValid = true;
+    public void validateXMLSchema(InputStream xmlFile) {
         try {
             SchemaFactory factory =
                     SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = factory.newSchema(getXSD());
             Validator validator = schema.newValidator();
             validator.validate((Source) xmlFile);
-        } catch (IOException | SAXException e){
+        } catch (IOException | SAXException e) {
             LOGGER.warn(e);
-            isValid = false;
         }
 
-        return isValid;
     }
 
     private File getXSD() {

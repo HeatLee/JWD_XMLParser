@@ -5,7 +5,6 @@ import by.training.xmlparser.entity.Parameters;
 import by.training.xmlparser.entity.Tariff;
 
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,7 +26,7 @@ public abstract class AbstractTariffBuilder {
         return tariffs;
     }
 
-    public abstract void buildTariffs(InputStream file) throws ParseException;
+    public abstract void buildTariffs(InputStream file);
 
     public String getName() {
         return name;

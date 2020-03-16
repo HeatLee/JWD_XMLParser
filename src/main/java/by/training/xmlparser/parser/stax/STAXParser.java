@@ -13,19 +13,17 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import java.io.InputStream;
-import java.text.ParseException;
 
-public class STAXBuilder extends AbstractTariffBuilder {
-    private static final Logger logger = Logger.getLogger(STAXBuilder.class);
-    private static final int ID_ATTRIBUTE_POSITION = 0;
+public class STAXParser extends AbstractTariffBuilder {
+    private static final Logger logger = Logger.getLogger(STAXParser.class);
     private XMLInputFactory inputFactory;
 
-    public STAXBuilder() {
+    public STAXParser() {
         inputFactory = XMLInputFactory.newFactory();
     }
 
     @Override
-    public void buildTariffs(InputStream file) throws ParseException {
+    public void buildTariffs(InputStream file){
         try {
             XMLStreamReader reader = inputFactory.createXMLStreamReader(file);
             while (reader.hasNext()) {

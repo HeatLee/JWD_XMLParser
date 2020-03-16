@@ -21,11 +21,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class DOMBuilder extends AbstractTariffBuilder {
-    private static final Logger logger = Logger.getLogger(DOMBuilder.class);
+public class DOMParser extends AbstractTariffBuilder {
+    private static final Logger logger = Logger.getLogger(DOMParser.class);
     private DocumentBuilder documentBuilder;
 
-    public DOMBuilder() {
+    public DOMParser() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         try {
@@ -69,7 +69,7 @@ public class DOMBuilder extends AbstractTariffBuilder {
                         TariffEnum.TARIFFING.getValue())))
                 .setConnectionCost(Double.parseDouble(getElementTextContent(element,
                         TariffEnum.CONNECTION_COST.getValue())));
-        AbstractTariffBuilder builder = new DOMBuilder()
+        AbstractTariffBuilder builder = new DOMParser()
                 .buildName(getElementTextContent(element, TariffEnum.NAME.getValue()))
                 .buildOperatorName(getElementTextContent(element, TariffEnum.OPERATOR_NAME.getValue()))
                 .buildSmsPrice(Double.parseDouble(getElementTextContent(element,

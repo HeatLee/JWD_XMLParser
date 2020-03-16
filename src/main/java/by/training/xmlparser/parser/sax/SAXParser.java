@@ -10,12 +10,12 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SAXBuilder extends AbstractTariffBuilder {
-    private static final Logger logger = Logger.getLogger(SAXBuilder.class);
+public class SAXParser extends AbstractTariffBuilder {
+    private static final Logger logger = Logger.getLogger(SAXParser.class);
     private SAXHandler saxHandler;
     private XMLReader reader;
 
-    public SAXBuilder() {
+    public SAXParser() {
         saxHandler = new SAXHandler();
         try {
             reader = XMLReaderFactory.createXMLReader();

@@ -1,8 +1,5 @@
 package by.training.xmlparser.builder;
 
-import by.training.xmlparser.entity.Tariff;
-import by.training.xmlparser.entity.Tariffing;
-
 public enum TariffEnum {
     TARIFFS("tariffs"),
     TARIFF("tariff"),

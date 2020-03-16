@@ -2,7 +2,7 @@ package by.training.xmlparser.service.impl;
 
 import by.training.xmlparser.entity.Tariff;
 import by.training.xmlparser.exception.ServiceException;
-import by.training.xmlparser.parser.sax.SAXBuilder;
+import by.training.xmlparser.parser.sax.SAXParser;
 import by.training.xmlparser.service.ParserService;
 import org.apache.log4j.Logger;
 
@@ -17,7 +17,7 @@ public class SAXParserService implements ParserService {
     @Override
     public Set<Tariff> parse(Part filePart) throws ServiceException {
         try {
-            SAXBuilder builder = new SAXBuilder();
+            SAXParser builder = new SAXParser();
             InputStream stream = filePart.getInputStream();
             VALIDATOR.validateXMLSchema(stream);
             builder.buildTariffs(stream);
